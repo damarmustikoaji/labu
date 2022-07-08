@@ -1,0 +1,7 @@
+reports
+venv
+.DS_Store
+.idea
+*.html
+*.xml
+driver
