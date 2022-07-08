@@ -31,8 +31,8 @@ jobs:
         && wget -q https://chromedriver.storage.googleapis.com/103.0.5060.53/chromedriver_linux64.zip \
         && unzip chromedriver_linux64.zip \
         && rm chromedriver_linux64.zip \
-        && mkdir driver/ \
-        && mv chromedriver /driver \
+        && sudo mkdir driver/ \
+        && sudo mv chromedriver /driver \
         && chmod +x /driver/chromedriver
     - name: Install dependencies
       run: pip install -r requirements.txt
