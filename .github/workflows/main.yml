@@ -28,11 +28,6 @@ jobs:
         wget -q https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb \
         && sudo dpkg -i google-chrome*.deb \
         && rm google-chrome*.deb \
-        && wget -q https://chromedriver.storage.googleapis.com/103.0.5060.53/chromedriver_linux64.zip \
-        && unzip chromedriver_linux64.zip \
-        && rm chromedriver_linux64.zip \
-        && sudo mkdir driver/ \
-        && sudo mv chromedriver /driver \
         && chmod +x /driver/chromedriver
     - name: Install dependencies
       run: pip install -r requirements.txt
