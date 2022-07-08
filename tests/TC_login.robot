@@ -9,7 +9,8 @@ Suite Teardown  Run Keyword And Ignore Error    Suite shutdown
 Verify UnSuccessful Login using invalid data
     [documentation]     Negative
     [tags]  Functionality
-    Open Browser    ${url}      ${browser}
+    Create Webdriver    Chrome    executable_path=${chromeDriver}
+    Go To    ${url}
     Wait Until Element Is Visible  ${notifikasiCancel}
     Click Element   ${notifikasiCancel}
     Wait Until Element Is Visible  ${buttonMasuk}
