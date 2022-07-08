@@ -3,7 +3,7 @@ Documentation  In this file we can list all the variables and keywords to be use
 Library        SeleniumLibrary
 
 *** Variables ***
-${chromeDriver}         ${EXECDIR}/driver/chromedriver
+${chromeDriver}         /usr/local/bin/chromedriver
 ${browser}              Chrome
 ${url}                  http://kumparan.com
 
