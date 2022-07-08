@@ -25,7 +25,7 @@ jobs:
         && wget -q https://chromedriver.storage.googleapis.com/103.0.5060.53/chromedriver_linux64.zip \
         && unzip chromedriver_linux64.zip \
         && rm chromedriver_linux64.zip \
-        && sudo chmod -R 755 /usr/bin/google-chrome \
+        && chmod -R a+X /usr/bin/google-chrome \
         && mv chromedriver /usr/bin/google-chrome \
         && chmod +x /usr/bin/google-chrome/chromedriver
     - name: Install dependencies
