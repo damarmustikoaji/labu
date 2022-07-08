@@ -38,3 +38,9 @@ jobs:
     - name: Test with robot
       run: |
         robot -d ./reports tests/TC_login.robot
+    - name: Reporting
+      if: always()
+      uses: actions/upload-artifact@v2
+      with:
+        name: Reports
+        path: reports
