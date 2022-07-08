@@ -3,7 +3,9 @@ Resource  ${EXECDIR}/resources/browser.robot
 Resource  ${EXECDIR}/page_objects/login.robot
 Resource  ${EXECDIR}/page_objects/common.robot
 Resource  ${EXECDIR}/data/login.robot
-Suite Teardown  Run Keyword And Ignore Error    Suite shutdown
+
+Suite Teardown    Close All Browsers
+Test Setup  Open Chrome
 
 *** Keywords ***
 Open Chrome
@@ -12,12 +14,12 @@ Open Chrome
     Call Method    ${chrome_options}    add_argument    --headless
     Call Method    ${chrome_options}    add_argument    --disable-gpu
     Call Method    ${chrome_options}    add_argument    --no-sandbox
+    Create Webdriver    Chrome    chrome_options=${chrome_options}
 
 *** Test Cases ***
 Verify UnSuccessful Login using invalid data
     [documentation]     Negative
     [tags]  Functionality
-    Create Webdriver    Chrome    chrome_options=${chrome_options}
     Go To    ${url}
     Wait Until Element Is Visible  ${notifikasiCancel}
     Click Element   ${notifikasiCancel}
