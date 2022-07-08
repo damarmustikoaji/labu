@@ -1,22 +1,20 @@
-name: Robot Framework Web-UI Test
+name: Labu
 
 on:
   push:
-    branches: [ "master" ]
+    branches: [ master ]
   pull_request:
-    branches: [ "master" ]
+    branches: [ master ]
+  schedule:
+    - cron: '30 07 * * 1-5'
 
 jobs:
-  run-test:
+  testing:
 
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
-    - name: Set up Python 3.10
-      uses: actions/setup-python@v3
-      with:
-        python-version: "3.10"
+    - uses: actions/checkout@v2
     - name: Install browser
       run: |
         wget -q https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb \
@@ -25,17 +23,5 @@ jobs:
         && wget -q https://chromedriver.storage.googleapis.com/103.0.5060.53/chromedriver_linux64.zip \
         && unzip chromedriver_linux64.zip \
         && rm chromedriver_linux64.zip \
-        && chmod -R a+X /usr/bin/google-chrome \
-        && mv chromedriver /usr/bin/google-chrome \
-        && chmod +x /usr/bin/google-chrome/chromedriver
-    - name: Install dependencies
-      run: pip install -r requirements.txt
-    - name: Test with robot
-      run: |
-        robot -d ./reports tests
-    - name: Reporting
-      if: always()
-      uses: actions/upload-artifact@v2
-      with:
-        name: Reports
-        path: reports
+        && mv chromedriver /usr/local/bin \
+        && chmod +x /usr/local/bin/chromedriver
