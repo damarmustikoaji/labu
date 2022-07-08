@@ -1,4 +1,4 @@
-name: Robot Framework API Test
+name: Robot Framework Web-UI Test
 
 on:
   push:
