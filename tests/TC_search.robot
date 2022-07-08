@@ -9,8 +9,7 @@ Suite Teardown  Run Keyword And Ignore Error    Suite shutdown
 Verify Successful Search News using valid keyword
     [documentation]     Positive
     [tags]  Functionality
-    Create Webdriver    Chrome    executable_path=${browser}
-    Go To    ${url}
+    Open Browser    ${url}      ${browser}
     Wait Until Element Is Visible  ${notifikasiCancel}
     Click Element   ${notifikasiCancel}
     Input Text  ${searchField}  ${keyword}

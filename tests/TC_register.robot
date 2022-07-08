@@ -9,8 +9,7 @@ Suite Teardown  Run Keyword And Ignore Error    Suite shutdown
 Verify Successful Register using valid data
     [documentation]     Positive
     [tags]  Functionality
-    Create Webdriver    Chrome    executable_path=${browser}
-    Go To    ${url}/register
+    Open Browser    ${url}/register      ${browser}
     Wait Until Element Is Visible  ${notifikasiCancel}
     Click Element   ${notifikasiCancel}
     Wait Until Element Is Visible  ${emailField}
