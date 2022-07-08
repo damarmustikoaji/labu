@@ -5,7 +5,7 @@ Library        SeleniumLibrary
 *** Variables ***
 ${chromeDriver}         /usr/local/bin/chromedriver
 ${browser}              Chrome
-${url}                  http://kumparan.com
+${url}                  https://kumparan.com
 
 *** Keywords ***
 Suite shutdown
