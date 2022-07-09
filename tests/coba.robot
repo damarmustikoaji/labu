@@ -1,7 +1,7 @@
 *** Settings ***
 Library  Selenium2Library
-Suite Setup     Open Browser    ${URL}   ${BROWSER}
-Suite Teardown  Close All Browsers
+Suite Teardown    Close All Browsers
+Test Setup  Open Chrome
 
 *** Keywords ***
 ${chrome_options}=    Evaluate    sys.modules['selenium.webdriver'].ChromeOptions()    sys, selenium.webdriver
