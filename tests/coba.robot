@@ -1,29 +1,35 @@
 *** Settings ***
-Library     Selenium2Library
-Resource    ${EXECDIR}/page_objects/common.robot
-Resource    ${EXECDIR}/page_objects/login.robot
-Resource    ${EXECDIR}/data/login.robot
+Documentation     Simple example using SeleniumLibrary.
+Library           SeleniumLibrary
 
 *** Variables ***
-${URL}          http://www.google.com
-${BROWSER}      Chrome
-
-*** Keywords ***
-open the browser
-Open Browser    ${URL}     ${BROWSER}
+${LOGIN URL}      http://google.com
+${BROWSER}        Chrome
 
 *** Test Cases ***
-Verify UnSuccessful Login using invalid data
-    [documentation]     Negative
-    [tags]  Functionality
-    Open Browser
-    Wait Until Element Is Visible  ${notifikasiCancel}
-    Click Element   ${notifikasiCancel}
-    Wait Until Element Is Visible  ${buttonMasuk}
-    Click Element   ${buttonMasuk}
-    Wait Until Element Is Visible  ${emailField}
-    Input Text  ${emailField}  ${emailInvalid}
-    Input Text  ${passwordField}  ${passwordInvalid}
-    Click Element   ${buttonSave}
-    Wait Until Page Contains   Salah
-    Close Browser
+Valid Login
+    Open Browser To Login Page
+    Input Username    demo
+    Input Password    mode
+    Submit Credentials
+    Welcome Page Should Be Open
+    [Teardown]    Close Browser
+
+*** Keywords ***
+Open Browser To Login Page
+    Open Browser    ${LOGIN URL}    ${BROWSER}
+    Title Should Be    Login Page
+
+Input Username
+    [Arguments]    ${username}
+    Input Text    username_field    ${username}
+
+Input Password
+    [Arguments]    ${password}
+    Input Text    password_field    ${password}
+
+Submit Credentials
+    Click Button    login_button
+
+Welcome Page Should Be Open
+    Title Should Be    Welcome Page
