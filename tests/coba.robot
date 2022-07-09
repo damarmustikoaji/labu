@@ -1,19 +1,16 @@
 *** Settings ***
-Library     Selenium2Library
+Library           Selenium2Library
+Library           OperatingSystem
 
 *** Variables ***
-${HOMEPAGE}     http://www.google.com
-${BROWSER}      Chrome
+${Browser}        Chrome
+${SiteUrl}        https://twitter.com/signup
 
 *** Keywords ***
-Open Browser    ${HOMEPAGE}     ${BROWSER}
-
-search topic
-[Arguments]     ${topic}
-Input Text  name=q  ${topic}
-Press Key   name=q  \\13
-
+Open page
+   open browser    ${SiteUrl}      ${browser}
+   Maximize Browser Window
+   
 *** Test Cases ***
-Open Browser
-Search on Google
-search topic    browserstack
+Twitter Registration Flow
+   Open Page
