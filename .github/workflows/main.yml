@@ -11,10 +11,7 @@ jobs:
         - uses: actions/checkout@v2
         - name: Execute tests
           uses: joonvena/robotframework-docker-action@v0.1
-          env:
-            BROWSER: chrome
-            ROBOT_TESTS_DIR: /labu
-            ROBOT_REPORTS_DIR: /labu/reports
+        - run: robot -d ./reports tests/TC_login.robot
         - name: Upload test results
           uses: actions/upload-artifact@v1
           if: always()
