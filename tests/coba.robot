@@ -6,7 +6,6 @@ ${HOMEPAGE}     http://www.google.com
 ${BROWSER}      Chrome
 
 *** Keywords ***
-open the browser
 Open Browser    ${HOMEPAGE}     ${BROWSER}
 
 search topic
@@ -16,7 +15,5 @@ Press Key   name=q  \\13
 
 *** Test Cases ***
 Open Browser
-open the browser
-
 Search on Google
 search topic    browserstack
