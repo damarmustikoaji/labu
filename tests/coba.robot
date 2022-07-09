@@ -2,6 +2,7 @@
 Library     Selenium2Library
 Resource    ${EXECDIR}/page_objects/common.robot
 Resource    ${EXECDIR}/page_objects/login.robot
+Resource    ${EXECDIR}/data/login.robot
 
 *** Variables ***
 ${URL}          http://www.google.com
