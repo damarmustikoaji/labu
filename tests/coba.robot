@@ -15,6 +15,8 @@ Open Browser    ${URL}     ${BROWSER}
 Verify UnSuccessful Login using invalid data
     [documentation]     Negative
     [tags]  Functionality
+    Open Browser
+    open the browser
     Wait Until Element Is Visible  ${notifikasiCancel}
     Click Element   ${notifikasiCancel}
     Wait Until Element Is Visible  ${buttonMasuk}
