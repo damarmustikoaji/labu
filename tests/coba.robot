@@ -1,27 +1,24 @@
 *** Settings ***
 
-Documentation     A simple example to test a login page
-Library           Selenium2Library
-
-
-Test Setup  Run Keywords
-...         Open Browser    https://domain.com/login  Chrome    AND
-...         Maximize Browser Window
-
-Test Teardown  Close Browser
+Library Selenium2Library
 
 *** Variables ***
+${HOMEPAGE} http://www.google.com
+${BROWSER} Chrome
 
-${username_input}    email
-${password_input}   password
-${submit_login}   //button[contains(text(),"Login")]
-${whoisit}        //html/body/aside/ul/li[1]
+*** Keywords ***
+open the browser
+Open Browser ${HOMEPAGE} ${BROWSER}
 
+search topic
+[Arguments] ${topic}
+Input Text name=q ${topic}
+Press Key name=q \\13
 
 *** Test Cases ***
 
-TEST_01: Login to some page
-Input Text  ${username_input}   login@domain.com
-Input Text  ${password_input}   password
-Click button  ${submit_login}
-Element Text Should Be  ${whoisit}   Welcome Joe
+Open Browser
+open the browser
+
+Search on Google
+search topic browserstack
