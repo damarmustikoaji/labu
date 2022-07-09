@@ -5,3 +5,4 @@ robotframework-extendedselenium2library==0.9.2
 Selenium2LibraryExtension==1.1.0
 selenium==4.3.0
 SeleniumLibraryExtension==0.0.7
+webdrivermanager==0.10.0
