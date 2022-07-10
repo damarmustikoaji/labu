@@ -1,5 +1,5 @@
 *** Settings ***
-Force Tags      Register
+Force Tags      Kumparan    Register
 Resource        ${EXECDIR}/resources/browser.robot
 Resource        ${EXECDIR}/page_objects/common.robot
 Resource        ${EXECDIR}/page_objects/register.robot
