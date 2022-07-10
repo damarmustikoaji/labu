@@ -1,10 +1,12 @@
 *** Settings ***
 Force Tags      check
 Library         SeleniumLibrary
-Resource        ${EXECDIR}/resources/browser.robot
 
 Test Setup  Open Chrome
 Suite teardown    Close all browsers
+
+*** Variables ***
+${browserPath}          /usr/local/bin/chromedriver
 
 *** Keywords ***
 Open Chrome
