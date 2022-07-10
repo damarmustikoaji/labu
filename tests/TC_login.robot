@@ -1,5 +1,5 @@
 *** Settings ***
-Force Tags      Login
+Force Tags      Kumparan    Login
 Resource        ${EXECDIR}/resources/browser.robot
 Resource        ${EXECDIR}/page_objects/login.robot
 Resource        ${EXECDIR}/page_objects/common.robot
