@@ -10,7 +10,7 @@ Test Setup          Open Chrome
 
 *** Test Cases ***
 Verify Successful Register using valid data
-    [documentation]     Positive
+    [documentation]     User melakukan register dengan valid data email
     [tags]  Positive
     Go To    ${url}/register
     Wait Until Element Is Visible  ${emailField}
@@ -20,7 +20,7 @@ Verify Successful Register using valid data
     Close Browser
 
 Verify UnSuccessful Register using invalid data
-    [documentation]     Negative
+    [documentation]     User melakukan register dengan invalid data email (tidak sesuai format valid email)
     [tags]  Negative
     Go To    ${url}/register
     Wait Until Element Is Visible  ${emailField}
