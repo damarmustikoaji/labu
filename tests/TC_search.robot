@@ -1,15 +1,17 @@
 *** Settings ***
-Resource  ${EXECDIR}/resources/browser.robot
-Resource  ${EXECDIR}/page_objects/common.robot
-Resource  ${EXECDIR}/page_objects/search.robot
-Resource  ${EXECDIR}/data/search.robot
-Suite Teardown  Run Keyword And Ignore Error    Suite shutdown
+Force Tags      Search
+Resource        ${EXECDIR}/resources/browser.robot
+Resource        ${EXECDIR}/page_objects/common.robot
+Resource        ${EXECDIR}/page_objects/search.robot
+Resource        ${EXECDIR}/data/search.robot
+
+Suite Teardown      Close All Browsers
+Test Setup          Open Chrome
 
 *** Test Cases ***
 Verify Successful Search News using valid keyword
     [documentation]     Positive
-    [tags]  Functionality
-    Create Webdriver    Chrome    executable_path=${chromeDriver}
+    [tags]  search-positive
     Go To    ${url}
     Wait Until Element Is Visible  ${notifikasiCancel}
     Click Element   ${notifikasiCancel}
@@ -21,8 +23,7 @@ Verify Successful Search News using valid keyword
 
 Verify UnSuccessful Search News using invalid keyword
     [documentation]     Negative
-    [tags]  Functionality
-    Create Webdriver    Chrome    executable_path=${browser}
+    [tags]  search-negative
     Go To    ${url}
     Wait Until Element Is Visible  ${notifikasiCancel}
     Click Element   ${notifikasiCancel}
