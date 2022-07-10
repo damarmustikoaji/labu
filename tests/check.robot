@@ -27,7 +27,7 @@ Verify Access Page
     [documentation]     Positive
     [tags]  check
     Capture Page Screenshot
-    Title Should Be         kumparan.com - Platform Media Berita Kolaboratif, Terkini Indonesia Hari Ini
+    Title Should Be         Google
     Close Browser
 
 *** Keywords ***
