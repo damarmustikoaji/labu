@@ -1,5 +1,5 @@
 *** Settings ***
-Documentation  Robot Framework - Test run on gitlab cicd
+Documentation  Robot Framework
 Library  SeleniumLibrary
 
 Suite Teardown  Run Keyword And Ignore Error    Suite shutdown
