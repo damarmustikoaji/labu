@@ -18,3 +18,5 @@ dpkg -i google-chrome*.deb
 apt-get -f -y install
 dpkg --configure -a
 dpkg -i google-chrome*.deb
+
+sudo apt-get install -y xvfb wget ca-certificates fonts-liberation libasound2 libatk-bridge2.0-0 libatk1.0-0 libatspi2.0-0 libcups2 libdbus-1-3 libgbm1 libgtk-3-0 libnspr4 libnss3 libxcomposite1 libxkbcommon0 libxrandr2 xdg-utils ntpdate openssl
