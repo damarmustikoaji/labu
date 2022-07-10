@@ -1,5 +1,5 @@
 *** Settings ***
-Force Tags      Kumparan    |   News
+Force Tags      News
 Resource        ${EXECDIR}/resources/browser.robot
 Resource        ${EXECDIR}/page_objects/common.robot
 Resource        ${EXECDIR}/page_objects/search.robot
@@ -11,10 +11,7 @@ Test Setup          Open Chrome
 *** Test Cases ***
 Verify Successful Access News from Search
     [documentation]     Positive
-    [tags]  positive
     Go To    ${url}
-    Wait Until Element Is Visible  ${notifikasiCancel}
-    Click Element   ${notifikasiCancel}
     Input Text  ${searchField}  ${keyword}
     Press Keys    ${searchField}    ENTER
     Wait Until Element Is Visible   ${searchResult}
