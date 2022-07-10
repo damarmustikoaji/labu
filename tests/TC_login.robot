@@ -1,5 +1,5 @@
 *** Settings ***
-Force Tags      Kumparan    |   Login
+Force Tags      Login
 Resource        ${EXECDIR}/resources/browser.robot
 Resource        ${EXECDIR}/page_objects/login.robot
 Resource        ${EXECDIR}/page_objects/common.robot
@@ -11,7 +11,6 @@ Test Setup          Open Chrome
 *** Test Cases ***
 Verify UnSuccessful Login using invalid data
     [documentation]     Negative
-    [tags]  negative
     Go To    ${url}
 #    Wait Until Element Is Visible  ${notifikasiCancel}
 #    Click Element   ${notifikasiCancel}
