@@ -1,36 +1,28 @@
 *** Settings ***
 Force Tags  check
-Documentation  Robot Framework - Test run on gitlab cicd
-Library  SeleniumLibrary
+Library     Selenium2Library
 
-Suite Teardown  Run Keyword And Ignore Error    Suite shutdown
-
-*** Variables ***
-${URL}                      https://google.com
-${CHROMEDRIVER_PATH}        /usr/local/bin/chromedriver
+Suite Teardown    Close All Browsers
+Test Setup  Open Chrome
 
 *** Keywords ***
-Open Website
-    ${chrome_options}=  Evaluate  sys.modules['selenium.webdriver'].ChromeOptions()  sys, selenium.webdriver
-    Call Method     ${chrome_options}       add_argument    --no-sandbox
-    Call Method     ${chrome_options}       add_argument    --headless
-    Call Method     ${chrome_options}       add_argument    --start-maximized
-    Call Method     ${chrome_options}       add_argument    --disable-extensions
-    Call Method     ${chrome_options}       add_argument    --disable-dev-shm-usage
-    Call Method     ${chrome_options}       add_argument    --disable-gpu
-    Open Browser    ${URL}                  chrome          options=${chrome_options}      executable_path=${CHROMEDRIVER_PATH}
 
-*** Settings ***
-Suite Setup       Open Website
+Open Chrome
+    ${chrome_options}=    Evaluate    sys.modules['selenium.webdriver'].ChromeOptions()    sys, selenium.webdriver
+    Call Method    ${chrome_options}    add_argument    --disable-extensions
+    Call Method    ${chrome_options}    add_argument    --headless
+    Call Method    ${chrome_options}    add_argument    --disable-gpu
+    Call Method    ${chrome_options}    add_argument    --no-sandbox
+    Create Webdriver    Chrome    chrome_options=${chrome_options}      executable_path=/usr/local/bin/chromedriver
+
 
 *** Test Cases ***
-Verify Access Page
-    [documentation]     Positive
-    [tags]  Functionality
-    Capture Page Screenshot
-    Title Should Be     Google
+Verify Successful Kumparan
+    Go To    https://google.com
+    Title Should Be         Google
     Close Browser
 
-*** Keywords ***
-Suite shutdown
-     Close All Browsers
+Verify Successful Google
+    Go To    https://google.com
+    Title Should Be         Google
+    Close Browser
