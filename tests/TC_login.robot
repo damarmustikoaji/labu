@@ -10,7 +10,7 @@ Test Setup          Open Chrome
 
 *** Test Cases ***
 Verify UnSuccessful Login using invalid data
-    [documentation]     Negative
+    [documentation]     User melakukan login dengan invalid data email dan password
     [tags]  Negative
     Go To    ${url}
 #    Wait Until Element Is Visible  ${notifikasiCancel}
