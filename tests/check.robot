@@ -18,8 +18,8 @@ Open Chrome
 
 *** Test Cases ***
 Verify Successful Kumparan
-    Go To    https://google.com
-    Title Should Be         Google
+    Go To    https://kumparan.com
+    Title Should Be         kumparan.com - Platform Media Berita Kolaboratif, Terkini Indonesia Hari Ini
     Close Browser
 
 Verify Successful Google
