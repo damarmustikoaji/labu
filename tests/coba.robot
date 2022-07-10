@@ -5,7 +5,7 @@ Library  SeleniumLibrary
 Suite Teardown  Run Keyword And Ignore Error    Suite shutdown
 
 *** Variables ***
-${URL}        https://google.com
+${URL}        https://kumparan
 ${CHROMEDRIVER_PATH}        /usr/local/bin/chromedriver
 
 *** Keywords ***
