@@ -28,7 +28,7 @@ jobs:
         && chmod +x /usr/local/bin/chromedriver
     - name: Test with robot
       run: |
-        robot -d ./reports tests/coba.robot
+        robot -d ./reports tests/check.robot
     - name: Reporting
       if: always()
       uses: actions/upload-artifact@v2
