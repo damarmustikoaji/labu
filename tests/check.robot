@@ -1,28 +1,44 @@
 *** Settings ***
 Force Tags  check
-Library     Selenium2Library
+Library  SeleniumLibrary
 
-Suite Teardown    Close All Browsers
-Test Setup  Open Chrome
+Suite Teardown  Run Keyword And Ignore Error    Suite shutdown
+
+*** Variables ***
+${URL}                      https://google.com
+${CHROMEDRIVER_PATH}        /usr/local/bin/chromedriver
 
 *** Keywords ***
+Open Website
+    ${chrome_options}=  Evaluate  sys.modules['selenium.webdriver'].ChromeOptions()  sys, selenium.webdriver
+    Call Method     ${chrome_options}       add_argument    --no-sandbox
+#    Call Method     ${chrome_options}       add_argument    --headless
+    Call Method     ${chrome_options}       add_argument    --start-maximized
+    Call Method     ${chrome_options}       add_argument    --disable-extensions
+    Call Method     ${chrome_options}       add_argument    --disable-dev-shm-usage
+    Call Method     ${chrome_options}       add_argument    --disable-gpu
+    Open Browser    Chrome                  chrome_options=${chrome_options}      executable_path=/usr/local/bin/chromedriver
 
-Open Chrome
-    ${chrome_options}=    Evaluate    sys.modules['selenium.webdriver'].ChromeOptions()    sys, selenium.webdriver
-#    Call Method    ${chrome_options}    add_argument    --disable-extensions
-#    Call Method    ${chrome_options}    add_argument    --headless
-#    Call Method    ${chrome_options}    add_argument    --disable-gpu
-#    Call Method    ${chrome_options}    add_argument    --no-sandbox
-    Create Webdriver    Chrome    chrome_options=${chrome_options}      executable_path=/usr/local/bin/chromedriver
-
+*** Settings ***
+Suite Setup       Open Website
 
 *** Test Cases ***
-Verify Successful Kumparan
+Verify Access Page
+    [documentation]     Positive
+    [tags]  Functionality
+    Capture Page Screenshot
+    Go To    https://google.com
+    Title Should Be     Google
+    Close Browser
+    
+Verify Access Page
+    [documentation]     Positive
+    [tags]  Functionality
+    Capture Page Screenshot
     Go To    https://kumparan.com
-    Title Should Be         kumparan.com - Platform Media Berita Kolaboratif, Terkini Indonesia Hari Ini
+    Title Should Be     Google
     Close Browser
 
-Verify Successful Google
-    Go To    https://google.com
-    Title Should Be         Google
-    Close Browser
+*** Keywords ***
+Suite shutdown
+     Close All Browsers
