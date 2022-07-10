@@ -21,3 +21,8 @@ Go to google
     Go To    https://google.com
     Title Should Be         Google
     Close All Browsers
+
+Go to kumparan
+    Go To    https://kumparan.com
+    Title Should Be         Google
+    Close All Browsers
