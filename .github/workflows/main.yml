@@ -18,8 +18,7 @@ jobs:
         sudo apt-get update -y
     - name: Run script file
       run: |
-         chmod +x support.sh
-         support.sh
+         chmod +x ./support.sh
       shell: bash
 #     - name: Install dependencies
 #       run: |
