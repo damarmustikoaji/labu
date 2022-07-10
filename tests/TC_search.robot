@@ -10,7 +10,7 @@ Test Setup          Open Chrome
 
 *** Test Cases ***
 Verify Successful Search News using valid keyword
-    [documentation]     Positive
+    [documentation]     User melakukan search news dengan keyword valid (data ditemukan)
     [tags]  Positive
     Go To    ${url}
     Input Text  ${searchField}  ${keyword}
@@ -20,7 +20,7 @@ Verify Successful Search News using valid keyword
     Close Browser
 
 Verify UnSuccessful Search News using invalid keyword
-    [documentation]     Negative
+    [documentation]     User melakukan search news dengan keyword invalid (data tidak ditemukan)
     [tags]  Negative
     Go To    ${url}
     Input Text  ${searchField}  ${keywordInvalid}
