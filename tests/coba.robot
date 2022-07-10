@@ -1,11 +1,10 @@
-*** Settings ***
 Documentation  Robot Framework - Test run on gitlab cicd
 Library  SeleniumLibrary
 
 Suite Teardown  Run Keyword And Ignore Error    Suite shutdown
 
 *** Variables ***
-${URL}        https://kumparan
+${URL}        https://google.com
 ${CHROMEDRIVER_PATH}        /usr/local/bin/chromedriver
 
 *** Keywords ***
