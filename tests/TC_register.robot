@@ -1,5 +1,5 @@
 *** Settings ***
-Force Tags      Register
+Force Tags      Kumparan    |   Register
 Resource        ${EXECDIR}/resources/browser.robot
 Resource        ${EXECDIR}/page_objects/common.robot
 Resource        ${EXECDIR}/page_objects/register.robot
@@ -11,7 +11,7 @@ Test Setup          Open Chrome
 *** Test Cases ***
 Verify Successful Register using valid data
     [documentation]     Positive
-    [tags]  register-positive
+    [tags]  positive
     Go To    ${url}/register
     Wait Until Element Is Visible  ${notifikasiCancel}
     Click Element   ${notifikasiCancel}
@@ -23,7 +23,7 @@ Verify Successful Register using valid data
 
 Verify UnSuccessful Register using invalid data
     [documentation]     Negative
-    [tags]  register-negative
+    [tags]  negative
     Go To    ${url}/register
     Wait Until Element Is Visible  ${notifikasiCancel}
     Click Element   ${notifikasiCancel}
