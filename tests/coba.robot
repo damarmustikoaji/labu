@@ -17,6 +17,7 @@ Open Website
     Call Method     ${chrome_options}       add_argument    --disable-extensions
     Call Method     ${chrome_options}       add_argument    --disable-dev-shm-usage
     Call Method     ${chrome_options}       add_argument    --disable-gpu
+    Call Method     ${chrome_options}       add_argument    --user-data-dir=chrome-data
     Open Browser    ${URL}                  chrome          options=${chrome_options}      executable_path=${CHROMEDRIVER_PATH}
 
 *** Settings ***
