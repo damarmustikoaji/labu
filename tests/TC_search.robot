@@ -11,6 +11,7 @@ Test Setup          Open Chrome
 *** Test Cases ***
 Verify Successful Search News using valid keyword
     [documentation]     Positive
+    [tags]  Positive
     Go To    ${url}
     Input Text  ${searchField}  ${keyword}
     Press Keys    ${searchField}    ENTER
@@ -20,6 +21,7 @@ Verify Successful Search News using valid keyword
 
 Verify UnSuccessful Search News using invalid keyword
     [documentation]     Negative
+    [tags]  Negative
     Go To    ${url}
     Input Text  ${searchField}  ${keywordInvalid}
     Press Keys    ${searchField}    ENTER
