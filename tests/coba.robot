@@ -5,7 +5,7 @@ Library  SeleniumLibrary
 Suite Teardown  Run Keyword And Ignore Error    Suite shutdown
 
 *** Variables ***
-${URL}                      https://tinyurl.com/labuuu
+${URL}                      www.kumparan.com
 ${CHROMEDRIVER_PATH}        /usr/local/bin/chromedriver
 
 *** Keywords ***
@@ -26,9 +26,8 @@ Suite Setup       Open Website
 Verify Access Page
     [documentation]     Positive
     [tags]  Functionality
-    Sleep   3s
     Capture Page Screenshot
-    Title Should Be     Google
+    Title Should Be         kumparan.com - Platform Media Berita Kolaboratif, Terkini Indonesia Hari Ini
     Close Browser
 
 *** Keywords ***
