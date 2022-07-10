@@ -6,7 +6,7 @@ Suite Teardown  Run Keyword And Ignore Error    Suite shutdown
 
 *** Variables ***
 ${URL}                      https://tinyurl.com/labuuu
-${CHROMEDRIVER_PATH}        /usr/bin/google-chrome
+${CHROMEDRIVER_PATH}        /usr/local/bin/chromedriver
 
 *** Keywords ***
 Open Website
