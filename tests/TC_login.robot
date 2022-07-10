@@ -12,7 +12,6 @@ Test Setup          Open Chrome
 Verify UnSuccessful Login using invalid data
     [documentation]     Negative
     [tags]  negative
-    [tags]  login-negative
     Go To    ${url}
     Wait Until Element Is Visible  ${notifikasiCancel}
     Click Element   ${notifikasiCancel}
