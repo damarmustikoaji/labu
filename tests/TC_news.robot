@@ -1,5 +1,5 @@
 *** Settings ***
-Force Tags      News
+Force Tags      Kumparan    News
 Resource        ${EXECDIR}/resources/browser.robot
 Resource        ${EXECDIR}/page_objects/common.robot
 Resource        ${EXECDIR}/page_objects/search.robot
