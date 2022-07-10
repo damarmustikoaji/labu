@@ -22,6 +22,8 @@ Suite Setup       Open Website
 Verify Access Page
     [documentation]     Positive
     [tags]  Functionality
+    Delete All Cookies
+    Sleep   2s
     Capture Page Screenshot
     Title Should Be     Google
     Close Browser
