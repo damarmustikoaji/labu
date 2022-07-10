@@ -11,6 +11,7 @@ Test Setup          Open Chrome
 *** Test Cases ***
 Verify Successful Register using valid data
     [documentation]     Positive
+    [tags]  Positive
     Go To    ${url}/register
     Wait Until Element Is Visible  ${emailField}
     Input Text      ${emailField}       ${emailValid}
@@ -20,6 +21,7 @@ Verify Successful Register using valid data
 
 Verify UnSuccessful Register using invalid data
     [documentation]     Negative
+    [tags]  Negative
     Go To    ${url}/register
     Wait Until Element Is Visible  ${emailField}
     Input Text      ${emailField}       ${emailInvalid}
