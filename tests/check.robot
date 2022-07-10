@@ -1,5 +1,5 @@
 *** Settings ***
-Force Tags      github
+Force Tags      check
 Library    Selenium2Library
 
 Suite Teardown    Close All Browsers
