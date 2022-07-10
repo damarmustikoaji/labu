@@ -1,5 +1,5 @@
 *** Settings ***
-Force Tags      Kumparan    |   Search
+Force Tags      Kumparan    Search
 Resource        ${EXECDIR}/resources/browser.robot
 Resource        ${EXECDIR}/page_objects/common.robot
 Resource        ${EXECDIR}/page_objects/search.robot
