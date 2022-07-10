@@ -23,6 +23,7 @@ Suite shutdown
 Verify Google
     [documentation]     Positive
     [tags]  googlecheck
+    Delete All Cookies
     Go To    https://google.com
     Title Should Be         Google
     Close All Browsers
@@ -30,6 +31,7 @@ Verify Google
 Verify Kumparan
     [documentation]     Positive
     [tags]  kumparancheck
+    Delete All Cookies
     Go To    https://kumparan.com
     Title Should Be         Google
     Close All Browsers
