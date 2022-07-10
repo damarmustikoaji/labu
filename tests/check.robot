@@ -17,7 +17,7 @@ Open Website
     Call Method     ${chrome_options}       add_argument    --disable-extensions
     Call Method     ${chrome_options}       add_argument    --disable-dev-shm-usage
     Call Method     ${chrome_options}       add_argument    --disable-gpu
-    Open Browser    Chrome                  chrome_options=${chrome_options}      executable_path=/usr/local/bin/chromedriver
+    Create Webdriver    Chrome    chrome_options=${chrome_options}      executable_path=/usr/local/bin/chromedriver
 
 *** Settings ***
 Suite Setup       Open Website
