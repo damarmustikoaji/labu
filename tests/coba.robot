@@ -6,7 +6,7 @@ Suite Teardown  Run Keyword And Ignore Error    Suite shutdown
 
 *** Variables ***
 ${URL}                      https://tinyurl.com/labuuu
-${CHROMEDRIVER_PATH}        /usr/local/bin/chromedriver
+${CHROMEDRIVER_PATH}        /usr/bin/google-chrome
 
 *** Keywords ***
 Open Website
@@ -17,7 +17,7 @@ Open Website
     Call Method     ${chrome_options}       add_argument    --disable-extensions
     Call Method     ${chrome_options}       add_argument    --disable-dev-shm-usage
     Call Method     ${chrome_options}       add_argument    --disable-gpu
-    Call Method     ${chrome_options}       add_argument    --user-data-dir=chrome-data
+    Call Method     ${chrome_options}       add_argument    --user-data-dir
     Open Browser    ${URL}                  chrome          options=${chrome_options}      executable_path=${CHROMEDRIVER_PATH}
 
 *** Settings ***
