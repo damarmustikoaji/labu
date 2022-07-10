@@ -1,3 +1,4 @@
+*** Settings ***
 Documentation  Robot Framework - Test run on gitlab cicd
 Library  SeleniumLibrary
 
