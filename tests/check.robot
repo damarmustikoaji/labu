@@ -1,28 +1,33 @@
 *** Settings ***
 Force Tags      check
-Documentation   Robot Framework - Check
 Library         SeleniumLibrary
+Resource        ${EXECDIR}/resources/browser.robot
 
+Test Setup  Open Chrome
 Suite teardown    Close all browsers
 
-*** Variables ***
-${BROWSER}          Chrome
+*** Keywords ***
+Open Chrome
+    ${chrome_options}=    Evaluate    sys.modules['selenium.webdriver'].ChromeOptions()    sys, selenium.webdriver
+    Call Method    ${chrome_options}    add_argument    --disable-extensions
+#    Call Method    ${chrome_options}    add_argument    --headless
+    Call Method    ${chrome_options}    add_argument    --disable-gpu
+    Call Method    ${chrome_options}    add_argument    --no-sandbox
+    Create Webdriver    Chrome    chrome_options=${chrome_options}      executable_path=${browserPath}
+Suite shutdown
+     Close All Browsers
 
 *** Test Cases ***
 Verify Google
-    [documentation]     Negative
+    [documentation]     Positive
     [tags]  googlecheck
-    Open Browser    http://google.com    ${BROWSER}
+    Go To    https://google.com
     Title Should Be         Google
-    Close Browser
+    Close All Browsers
 
 Verify Kumparan
-    [documentation]     Negative
+    [documentation]     Positive
     [tags]  kumparancheck
-    Open Browser    http://kumparan.com    ${BROWSER}
-    Title Should Be         kumparan.com - Platform Media Berita Kolaboratif, Terkini Indonesia Hari Ini
-    Close Browser
-
-*** Keywords ***
-Suite shutdown
-     Close All Browsers
+    Go To    https://kumparan.com
+    Title Should Be         Google
+    Close All Browsers
