@@ -1,6 +1,6 @@
 *** Settings ***
-Force Tags      check
-Library    Selenium2Library
+Force Tags  check
+Library     Selenium2Library
 
 Suite Teardown    Close All Browsers
 Test Setup  Open Chrome
@@ -13,7 +13,7 @@ Open Chrome
 #    Call Method    ${chrome_options}    add_argument    --headless
     Call Method    ${chrome_options}    add_argument    --disable-gpu
     Call Method    ${chrome_options}    add_argument    --no-sandbox
-    Create Webdriver    Chrome    chrome_options=${chrome_options}
+    Create Webdriver    Chrome    chrome_options=${chrome_options}      executable_path=/usr/local/bin/chromedriver
 
 
 *** Test Cases ***
