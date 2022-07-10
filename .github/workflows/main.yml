@@ -13,16 +13,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2  
-    - name: Check update
-      run: |
-        sudo apt-get update -y
+#     - name: Check update
+#       run: |
+#         sudo apt-get update -y
     - name: Run script file
       run: |
          chmod +x ./support.sh
       shell: bash
-    - name: Install dependencies
-      run: |
-        pip install -r requirements.txt
+#     - name: Install dependencies
+#       run: |
+#         pip install -r requirements.txt
 #     - name: Install browser
 #       run: |
 #         wget -q https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb \
