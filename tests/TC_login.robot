@@ -4,8 +4,10 @@ Resource  ${EXECDIR}/page_objects/login.robot
 Resource  ${EXECDIR}/page_objects/common.robot
 Resource  ${EXECDIR}/data/login.robot
 
-Suite Teardown    Close All Browsers
-Test Setup  Open Chrome
+Library    Selenium2Library
+
+Suite Teardown      Close All Browsers
+Test Setup          Open Chrome
 
 *** Keywords ***
 Open Chrome
@@ -30,4 +32,4 @@ Verify UnSuccessful Login using invalid data
     Input Text  ${passwordField}  ${passwordInvalid}
     Click Element   ${buttonSave}
     Wait Until Page Contains   Salah
-    Close Browser
+    Close All Browsers
