@@ -13,8 +13,8 @@ Verify UnSuccessful Login using invalid data
     [documentation]     Negative
     [tags]  negative
     Go To    ${url}
-    Wait Until Element Is Visible  ${notifikasiCancel}
-    Click Element   ${notifikasiCancel}
+#    Wait Until Element Is Visible  ${notifikasiCancel}
+#    Click Element   ${notifikasiCancel}
     Wait Until Element Is Visible  ${buttonMasuk}
     Click Element   ${buttonMasuk}
     Wait Until Element Is Visible  ${emailField}
