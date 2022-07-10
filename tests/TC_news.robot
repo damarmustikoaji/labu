@@ -11,6 +11,7 @@ Test Setup          Open Chrome
 *** Test Cases ***
 Verify Successful Access News from Search
     [documentation]     Positive
+    [tags]  Positive
     Go To    ${url}
     Input Text  ${searchField}  ${keyword}
     Press Keys    ${searchField}    ENTER
