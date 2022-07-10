@@ -1,15 +1,17 @@
 *** Settings ***
-Resource  ${EXECDIR}/resources/browser.robot
-Resource  ${EXECDIR}/page_objects/common.robot
-Resource  ${EXECDIR}/page_objects/register.robot
-Resource  ${EXECDIR}/data/register.robot
-Suite Teardown  Run Keyword And Ignore Error    Suite shutdown
+Force Tags      Register
+Resource        ${EXECDIR}/resources/browser.robot
+Resource        ${EXECDIR}/page_objects/common.robot
+Resource        ${EXECDIR}/page_objects/register.robot
+Resource        ${EXECDIR}/data/register.robot
+
+Suite Teardown      Close All Browsers
+Test Setup          Open Chrome
 
 *** Test Cases ***
 Verify Successful Register using valid data
     [documentation]     Positive
-    [tags]  Functionality
-    Create Webdriver    Chrome    executable_path=${chromeDriver}
+    [tags]  register-positive
     Go To    ${url}/register
     Wait Until Element Is Visible  ${notifikasiCancel}
     Click Element   ${notifikasiCancel}
@@ -21,8 +23,7 @@ Verify Successful Register using valid data
 
 Verify UnSuccessful Register using invalid data
     [documentation]     Negative
-    [tags]  Functionality
-    Create Webdriver    Chrome    executable_path=${browser}
+    [tags]  register-negative
     Go To    ${url}/register
     Wait Until Element Is Visible  ${notifikasiCancel}
     Click Element   ${notifikasiCancel}
