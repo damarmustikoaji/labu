@@ -13,9 +13,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2  
-#     - name: Check update
-#       run: |
-#         sudo apt-get update -y
     - name: Run script file
       run: |
          chmod +x ./support.sh
