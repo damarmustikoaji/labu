@@ -18,5 +18,3 @@ dpkg -i google-chrome*.deb
 apt-get -f -y install
 dpkg --configure -a
 dpkg -i google-chrome*.deb
-
-pip install -r requirements.txt
