@@ -1,5 +1,5 @@
 *** Settings ***
-Force Tags      Search
+Force Tags      Kumparan    |   Search
 Resource        ${EXECDIR}/resources/browser.robot
 Resource        ${EXECDIR}/page_objects/common.robot
 Resource        ${EXECDIR}/page_objects/search.robot
@@ -11,7 +11,7 @@ Test Setup          Open Chrome
 *** Test Cases ***
 Verify Successful Search News using valid keyword
     [documentation]     Positive
-    [tags]  search-positive
+    [tags]  positive
     Go To    ${url}
     Wait Until Element Is Visible  ${notifikasiCancel}
     Click Element   ${notifikasiCancel}
@@ -23,7 +23,7 @@ Verify Successful Search News using valid keyword
 
 Verify UnSuccessful Search News using invalid keyword
     [documentation]     Negative
-    [tags]  search-negative
+    [tags]  negative
     Go To    ${url}
     Wait Until Element Is Visible  ${notifikasiCancel}
     Click Element   ${notifikasiCancel}
