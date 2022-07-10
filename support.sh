@@ -1,7 +1,4 @@
 #!/bin/bash
-# from https://chromium.woolyss.com/
-# and https://gist.github.com/addyosmani/5336747
-# and https://chromium.googlesource.com/chromium/src/+/lkgr/headless/README.md
 apt-get update
 
 if [ -z $(which node) ]; then
@@ -21,3 +18,5 @@ dpkg -i google-chrome*.deb
 apt-get -f -y install
 dpkg --configure -a
 dpkg -i google-chrome*.deb
+
+pip install -r requirements.txt
