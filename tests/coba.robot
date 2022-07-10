@@ -5,14 +5,14 @@ Library  SeleniumLibrary
 Suite Teardown  Run Keyword And Ignore Error    Suite shutdown
 
 *** Variables ***
-${URL}                      https://kumparan.com/login
+${URL}                      https://kumparan.com
 ${CHROMEDRIVER_PATH}        /usr/local/bin/chromedriver
 
 *** Keywords ***
 Open Website
     ${chrome_options}=  Evaluate  sys.modules['selenium.webdriver'].ChromeOptions()  sys, selenium.webdriver
     Call Method    ${chrome_options}    add_argument    --no-sandbox
-    Call Method    ${chrome_options}    add_argument    --headless
+#    Call Method    ${chrome_options}    add_argument    --headless
     Open Browser    ${URL}    chrome    options=${chrome_options}      executable_path=${CHROMEDRIVER_PATH}
 
 *** Settings ***
