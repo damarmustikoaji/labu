@@ -1,4 +1,5 @@
 *** Settings ***
+Force Tags  check
 Documentation  Robot Framework - Test run on gitlab cicd
 Library  SeleniumLibrary
 
