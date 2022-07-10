@@ -22,7 +22,7 @@ jobs:
         pip install -r requirements.txt
     - name: Test with robot
       run: |
-        robot -d reports -i check tests/
+        robot -d reports -i kumparan tests/
     - name: Reporting
       if: always()
       uses: actions/upload-artifact@v2
