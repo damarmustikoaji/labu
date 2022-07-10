@@ -1,12 +1,18 @@
 *** Settings ***
 Documentation  In this file we can list all the variables and keywords to be used
-Library        SeleniumLibrary
+Library         Selenium2Library
 
 *** Variables ***
-${chromeDriver}         /usr/local/bin/chromedriver
+${browserPath}          /usr/local/bin/chromedriver
 ${browser}              Chrome
-${url}                  https://www.kumparan.com
+${url}                  https://kumparan.com
 
 *** Keywords ***
-Suite shutdown
-     Close All Browsers
+Open Chrome
+    ${chrome_options}=    Evaluate    sys.modules['selenium.webdriver'].ChromeOptions()    sys, selenium.webdriver
+    Call Method    ${chrome_options}    add_argument    --disable-extensions
+    Call Method    ${chrome_options}    add_argument    --headless
+    Call Method    ${chrome_options}    add_argument    --disable-gpu
+    Call Method    ${chrome_options}    add_argument    --no-sandbox
+    Call Method    ${chrome_options}    add_argument    --user-agent
+    Create Webdriver    Chrome    chrome_options=${chrome_options}
