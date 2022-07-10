@@ -19,4 +19,5 @@ Open Chrome
 *** Test Cases ***
 Go to google
     Go To    https://google.com
+    Title Should Be         Google
     Close All Browsers
