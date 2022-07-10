@@ -10,8 +10,7 @@ ${CHROMEDRIVER_PATH}        /usr/local/bin/chromedriver
 
 *** Keywords ***
 Open Website
-    ${chrome_options}=  Evaluate  sys.modules['selenium.webdriver'].ChromeOptions()  sys, selenium.webdriver
-    Open Browser    ${URL}    chrome    options=${chrome_options}      executable_path=${CHROMEDRIVER_PATH}
+    Open Browser    ${URL}    chrome       executable_path=${CHROMEDRIVER_PATH}
 
 *** Settings ***
 Suite Setup       Open Website
@@ -21,7 +20,7 @@ Verify Access Page
     [documentation]     Positive
     [tags]  Functionality
     Capture Page Screenshot
-    Title Should Be     Google
+    Title Should Be     kumparan.com - Platform Media Berita Kolaboratif, Terkini Indonesia Hari Ini
     Close Browser
 
 *** Keywords ***
