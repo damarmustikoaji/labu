@@ -1,37 +1,22 @@
 *** Settings ***
 Force Tags      check
-Library         SeleniumLibrary
+Library    Selenium2Library
 
-Test Setup  Open Chrome
-Suite teardown    Close all browsers
-
-*** Variables ***
-${browserPath}          /usr/local/bin/chromedriver
+Suite Teardown      Close All Browsers
+Test Setup          Open Chrome
 
 *** Keywords ***
+
 Open Chrome
     ${chrome_options}=    Evaluate    sys.modules['selenium.webdriver'].ChromeOptions()    sys, selenium.webdriver
     Call Method    ${chrome_options}    add_argument    --disable-extensions
-#    Call Method    ${chrome_options}    add_argument    --headless
+    Call Method    ${chrome_options}    add_argument    --headless
     Call Method    ${chrome_options}    add_argument    --disable-gpu
     Call Method    ${chrome_options}    add_argument    --no-sandbox
-    Create Webdriver    Chrome    chrome_options=${chrome_options}      executable_path=${browserPath}
-Suite shutdown
-     Close All Browsers
+    Create Webdriver    Chrome    chrome_options=${chrome_options}
+
 
 *** Test Cases ***
-Verify Google
-    [documentation]     Positive
-    [tags]  googlecheck
-    Delete All Cookies
+Go to google
     Go To    https://google.com
-    Title Should Be         Google
-    Close All Browsers
-
-Verify Kumparan
-    [documentation]     Positive
-    [tags]  kumparancheck
-    Delete All Cookies
-    Go To    https://kumparan.com
-    Title Should Be         Google
     Close All Browsers
